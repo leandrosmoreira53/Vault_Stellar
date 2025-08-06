@@ -1,66 +1,64 @@
-Vault Stellar
-Um contrato inteligente desenvolvido em Rust utilizando o Soroban SDK, para a rede Stellar, que permite depósitos e saques de tokens, além do controle de saldo e administração.
+💰 Vault Stellar
+Um contrato inteligente para a rede Stellar, desenvolvido em Rust com o Soroban SDK, que permite depósitos e saques de tokens, além de controle de saldo e administração segura.
 
-Funcionalidades
-Inicialização: Define o proprietário e o endereço do token a ser gerenciado pelo cofre.
+⚙️ Funcionalidades
+🆕 Inicialização: Define o proprietário e o token que será gerenciado.
 
-Depósito: Usuários podem depositar tokens, aumentando seu saldo interno.
+💸 Depósito: Usuários podem depositar tokens no cofre.
 
-Saque: Usuários podem sacar tokens, reduzindo seu saldo interno.
+🏧 Saque: Permite o saque dos tokens, com verificação de saldo.
 
-Consulta de Saldo: Permite a qualquer usuário verificar seu saldo armazenado.
+📊 Consulta de Saldo: Qualquer usuário pode consultar seu saldo interno.
 
-Consulta de Suprimento Total: Informa o total de tokens depositados no cofre.
+📦 Consulta de Suprimento Total: Mostra o total de tokens armazenados.
 
-Consulta de Proprietário e Token: Exibe o endereço do proprietário e o token vinculado ao contrato.
+👤 Consulta de Proprietário e Token: Exibe quem é o dono do contrato e qual token está vinculado.
 
-Como funciona
-1. Inicialização
-O proprietário chama a função initialize, informando seu endereço e o do token. A inicialização só pode ser feita uma vez.
+🔍 Como Funciona
+🧱 Inicialização
+O proprietário chama initialize, informando seu endereço e o token. Essa função só pode ser chamada uma vez.
 
-2. Depósito
-O usuário chama a função deposit, informando o valor. O contrato transfere os tokens para si mesmo e atualiza o saldo interno do usuário.
+➕ Depósito
+O usuário chama deposit, informa o valor, e o contrato transfere os tokens para si, atualizando o saldo interno.
 
-3. Saque
-O usuário chama a função withdraw, com o valor desejado. O contrato verifica o saldo e, se suficiente, transfere os tokens de volta para o usuário.
+➖ Saque
+O usuário chama withdraw e informa o valor desejado. Se o saldo for suficiente, os tokens são devolvidos.
 
-4. Consultas
-Funções disponíveis:
+📥 Consultas
+balance → consulta de saldo do usuário
 
-balance: consulta de saldo individual
+total_supply → total depositado no cofre
 
-total_supply: total de tokens no cofre
+owner → endereço do proprietário
 
-owner: endereço do proprietário
+token_address → token vinculado ao contrato
 
-token_address: endereço do token gerenciado
+🧩 Estrutura do Código
+🧱 Vault: Estrutura principal do contrato
 
-Estrutura do Código
-Vault: Estrutura principal do contrato.
+🗝️ DataKey: Enum para chaves de armazenamento (saldo, proprietário, etc.)
 
-DataKey: Enum para chaves de armazenamento (ex: saldo, proprietário, token, suprimento).
+❗ VaultError: Enum para erros comuns (não autorizado, saldo insuficiente, etc.)
 
-VaultError: Enum com erros comuns (não autorizado, saldo insuficiente, valor inválido, não inicializado).
-
-Exemplo de Uso
-A lógica do contrato deve ser aplicada no arquivo lib.rs.
-
-Requisitos
-Rust
-
-Soroban SDK
-
-Como compilar
-Instale o Rust e o Soroban CLI.
-
-Clone este repositório.
-
-Compile o contrato com:
+🧪 Exemplo de Uso
+A lógica principal está no arquivo:
 
 bash
 Copiar
 Editar
-soroban build
-Licença
-MIT
+lib.rs
+🛠️ Requisitos
+🦀 Rust
 
+🌟 Soroban SDK
+
+🧰 Como Compilar
+bash
+Copiar
+Editar
+# Instale o Rust e o Soroban CLI
+# Clone este repositório
+# Compile com:
+soroban build
+📄 Licença
+MIT
